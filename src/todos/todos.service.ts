@@ -23,8 +23,16 @@ export class TodosService {
       description: 'Call my friend',
     },
   ];
-  
+
+  findOne(id: string){
+    return this.todos.find(todo => todo.id === Number(id));
+  }
+
   findAll(): Todo[] {
     return this.todos;
+  }
+
+  create(todo: Todo) {
+    this.todos = [...this.todos, todo];
   }
 }
